@@ -13,7 +13,7 @@ namespace DatingApp.Data
         {
             _context = context;
         }
-        public async Task<User> Login(string username, string password)
+        public async Task<User> LoginAsync(string username, string password)
         {
             var user = await _context.Users.FirstOrDefaultAsync(x => x.Username == username);
 
@@ -39,7 +39,7 @@ namespace DatingApp.Data
             return true;
         }
 
-        public async Task<User> Register(User user, string password)
+        public async Task<User> RegisterAsync(User user, string password)
         {
             byte[] passwordHash, passwordSalt;
             CreatePasswordHash(password, out passwordHash, out passwordSalt);
